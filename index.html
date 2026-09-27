@@ -168,17 +168,24 @@
             bottom: -200px;
             cursor: pointer;
             z-index: 10;
+            animation: floatUp linear infinite;
+        }
+
+        .balloon-sway {
             display: flex;
             flex-direction: column;
             align-items: center;
-            animation: floatBalloon linear infinite;
+            animation: sway var(--sway-time, 4s) ease-in-out infinite alternate;
         }
 
-        @keyframes floatBalloon {
-            0% { transform: translateY(0) translateX(0) rotate(-3deg); }
-            33% { transform: translateY(-40vh) translateX(30px) rotate(3deg); }
-            66% { transform: translateY(-80vh) translateX(-20px) rotate(-3deg); }
-            100% { transform: translateY(-130vh) translateX(15px) rotate(3deg); }
+        @keyframes floatUp {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(-130vh); }
+        }
+
+        @keyframes sway {
+            0% { transform: translateX(var(--sway-start, -30px)) rotate(-5deg); }
+            100% { transform: translateX(var(--sway-end, 30px)) rotate(5deg); }
         }
 
         .balloon {
@@ -536,8 +543,18 @@
                 const string = document.createElement('div');
                 string.classList.add('string');
                 
-                wrapper.appendChild(balloon);
-                wrapper.appendChild(string);
+                const swayWrapper = document.createElement('div');
+                swayWrapper.classList.add('balloon-sway');
+                
+                // Randomize sway for natural physics
+                swayWrapper.style.setProperty('--sway-time', `${2.5 + Math.random() * 2}s`);
+                const swayAmt = 15 + Math.random() * 30;
+                swayWrapper.style.setProperty('--sway-start', `-${swayAmt}px`);
+                swayWrapper.style.setProperty('--sway-end', `${swayAmt}px`);
+                
+                swayWrapper.appendChild(balloon);
+                swayWrapper.appendChild(string);
+                wrapper.appendChild(swayWrapper);
                 
                 wrapper.style.left = `${10 + Math.random() * 80}%`;
                 
@@ -559,9 +576,11 @@
         function catchBalloon(wrapper, index) {
             wrapper.style.pointerEvents = 'none'; 
             
-            wrapper.children[0].style.transform = 'scale(1.6)';
-            wrapper.children[0].style.opacity = '0';
-            wrapper.children[1].style.opacity = '0'; 
+            const balloonEl = wrapper.querySelector('.balloon');
+            const stringEl = wrapper.querySelector('.string');
+            balloonEl.style.transform = 'scale(1.6)';
+            balloonEl.style.opacity = '0';
+            stringEl.style.opacity = '0'; 
             
             const rect = wrapper.getBoundingClientRect();
             const x = (rect.left + rect.width / 2) / window.innerWidth;
