@@ -29,12 +29,14 @@
             background-size: 400% 400%;
             animation: gradientBG 15s ease infinite;
             height: 100vh;
+            height: 100dvh;
             overflow: hidden;
             display: flex;
             justify-content: center;
             align-items: center;
             color: var(--text-dark);
             perspective: 1200px;
+            -webkit-tap-highlight-color: transparent;
         }
 
         @keyframes gradientBG {
@@ -74,49 +76,61 @@
             border: 1px solid var(--glass-border);
             border-radius: 30px;
             box-shadow: var(--glass-shadow);
-            padding: 50px 40px;
+            padding: 40px 35px;
             text-align: center;
             z-index: 10;
-            max-width: 90%;
+            width: 92%;
+            max-width: 680px;
+            margin: auto;
         }
 
         /* Elegant Typography */
         h1.cursive-title {
             font-family: 'Dancing Script', cursive;
-            font-size: 5.5rem;
+            font-size: clamp(2.2rem, 7.5vw, 5rem);
             background: linear-gradient(to right, #ff4757, #ff6b81);
             -webkit-background-clip: text;
+            background-clip: text;
             -webkit-text-fill-color: transparent;
-            margin-bottom: 10px;
+            margin-bottom: 8px;
+            padding: 0 8px;
             line-height: 1.2;
             filter: drop-shadow(0px 4px 6px rgba(0,0,0,0.05));
         }
 
         h2.subtitle {
-            font-size: 1.2rem;
+            font-size: clamp(1rem, 3.5vw, 1.25rem);
             font-weight: 400;
             color: #4a4e69;
-            margin-bottom: 30px;
-            line-height: 1.75;
+            margin-bottom: 20px;
+            line-height: 1.6;
             max-width: 640px;
+        }
+
+        .final-name {
+            font-size: clamp(1.25rem, 4.8vw, 1.8rem);
+            font-weight: 600;
+            margin-bottom: 12px;
+            color: #ff6b81;
+            max-width: 100%;
         }
 
         .story-prologue {
             background: rgba(255, 255, 255, 0.45);
             border: 1px solid rgba(255, 255, 255, 0.65);
             border-radius: 20px;
-            padding: 22px 28px;
-            margin-bottom: 30px;
+            padding: 20px 24px;
+            margin-bottom: 24px;
             max-width: 640px;
             text-align: left;
             color: #2d3436;
-            font-size: 1.05rem;
-            line-height: 1.75;
+            font-size: clamp(0.85rem, 2.8vw, 1.02rem);
+            line-height: 1.65;
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
         }
 
         .story-prologue p {
-            margin-bottom: 12px;
+            margin-bottom: 10px;
         }
 
         .story-prologue p:last-child {
@@ -125,26 +139,26 @@
 
         .chapter-badge {
             display: inline-block;
-            padding: 5px 16px;
+            padding: 5px 15px;
             background: linear-gradient(135deg, #ff9a9e, #fecfef);
             color: #d63031;
             border-radius: 20px;
-            font-size: 0.82rem;
+            font-size: clamp(0.72rem, 2.4vw, 0.82rem);
             font-weight: 700;
             letter-spacing: 1px;
             text-transform: uppercase;
-            margin-bottom: 12px;
+            margin-bottom: 10px;
         }
 
         .story-progress {
             position: absolute;
-            top: 19%;
-            font-size: 1.05rem;
+            top: 18%;
+            font-size: clamp(0.84rem, 2.8vw, 1.05rem);
             font-weight: 600;
             color: #2d3436;
-            background: rgba(255, 255, 255, 0.6);
+            background: rgba(255, 255, 255, 0.65);
             backdrop-filter: blur(8px);
-            padding: 8px 22px;
+            padding: 7px 20px;
             border-radius: 30px;
             z-index: 15;
             box-shadow: 0 4px 15px rgba(0,0,0,0.08);
@@ -268,19 +282,23 @@
         .prologue-music-btn {
             display: inline-flex;
             align-items: center;
+            justify-content: center;
             gap: 8px;
-            margin-top: 6px;
+            margin-top: 4px;
             padding: 8px 16px;
             background: linear-gradient(135deg, #2d3436, #4a4e69);
             color: #fff;
             border: none;
             border-radius: 25px;
             font-family: 'Poppins', sans-serif;
-            font-size: 0.88rem;
+            font-size: clamp(0.75rem, 2.5vw, 0.88rem);
             font-weight: 600;
             cursor: pointer;
             box-shadow: 0 4px 12px rgba(0,0,0,0.15);
             transition: transform 0.2s;
+            max-width: 100%;
+            text-align: center;
+            line-height: 1.3;
         }
 
         .prologue-music-btn:hover {
@@ -294,8 +312,10 @@
             width: 100%; height: 100%;
             display: flex;
             flex-direction: column;
-            justify-content: center;
             align-items: center;
+            padding: 16px 12px 104px;
+            overflow-y: auto;
+            overflow-x: hidden;
             transition: opacity 0.8s, transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             z-index: 10;
         }
@@ -308,8 +328,8 @@
 
         /* Start Button */
         .btn-start {
-            padding: 18px 55px;
-            font-size: 1.2rem;
+            padding: 15px 44px;
+            font-size: clamp(0.95rem, 3vw, 1.15rem);
             font-family: 'Poppins', sans-serif;
             font-weight: 600;
             text-transform: uppercase;
@@ -331,22 +351,27 @@
         /* Game Area */
         #game-screen {
             z-index: 5;
+            overflow: hidden;
+            padding: 0;
         }
         
         .instruction {
             position: absolute;
-            top: 8%;
+            top: 5%;
+            width: 92%;
+            text-align: center;
             font-family: 'Dancing Script', cursive;
-            font-size: 4rem;
+            font-size: clamp(1.9rem, 6.5vw, 3.8rem);
+            line-height: 1.15;
             color: #fff;
-            text-shadow: 0 4px 15px rgba(0,0,0,0.15);
+            text-shadow: 0 4px 15px rgba(0,0,0,0.18);
             z-index: 15;
             animation: gentleFloat 4s infinite ease-in-out;
         }
 
         @keyframes gentleFloat {
             0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-15px); }
+            50% { transform: translateY(-10px); }
         }
 
         /* Realistic Shiny Balloons */
@@ -448,6 +473,8 @@
             display: flex;
             justify-content: center;
             align-items: center;
+            padding: 14px 12px 104px;
+            overflow-y: auto;
             opacity: 0;
             pointer-events: none;
             transition: opacity 0.5s;
@@ -460,13 +487,14 @@
 
         .polaroid {
             background: #fff;
-            padding: 20px;
-            border-radius: 12px;
+            padding: 18px;
+            border-radius: 16px;
             box-shadow: 0 40px 80px rgba(0,0,0,0.4), 0 0 100px rgba(255,255,255,0.1);
             transform: rotateY(90deg) scale(0.8) translateZ(-200px);
             transition: transform 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            max-width: 90%;
-            width: 420px;
+            max-width: 92%;
+            width: 400px;
+            margin: auto;
             text-align: center;
             display: flex;
             flex-direction: column;
@@ -480,35 +508,36 @@
         .polaroid-img {
             width: 100%;
             height: auto;
-            max-height: 40vh;
+            max-height: 35vh;
+            max-height: 35dvh;
             object-fit: contain;
             border-radius: 8px;
             box-shadow: 0 4px 15px rgba(0,0,0,0.06);
-            margin-bottom: 20px;
+            margin-bottom: 14px;
             background: #f8f9fa;
         }
 
         .polaroid-caption {
             font-family: 'Poppins', sans-serif;
             font-weight: 400;
-            font-size: 1.15rem;
+            font-size: clamp(0.9rem, 2.8vw, 1.08rem);
             color: #4a4e69;
-            line-height: 1.6;
-            margin-bottom: 30px;
+            line-height: 1.5;
+            margin-bottom: 18px;
             font-style: italic;
         }
 
         .btn-continue {
             position: relative;
             display: inline-block;
-            padding: 14px 40px;
+            padding: 12px 32px;
             background: linear-gradient(135deg, #a1c4fd, #c2e9fb);
             color: #2d3436;
             border: none;
             border-radius: 40px;
             font-family: 'Poppins', sans-serif;
             font-weight: 600;
-            font-size: 1.1rem;
+            font-size: clamp(0.88rem, 2.8vw, 1.05rem);
             text-transform: uppercase;
             letter-spacing: 1px;
             cursor: pointer;
@@ -523,39 +552,140 @@
 
         /* Grand Finale Screen */
         .final-glass {
-            max-width: 750px;
-            width: 90%;
-            padding: 60px 40px;
+            max-width: 680px;
+            width: 92%;
+            padding: 36px 28px;
+            margin: auto;
         }
 
         .final-cake {
-            font-size: 7rem;
-            margin-bottom: 10px;
+            font-size: clamp(3.2rem, 10vw, 5.5rem);
+            line-height: 1.1;
+            margin-bottom: 6px;
             animation: gentleFloat 3s infinite ease-in-out;
             filter: drop-shadow(0 15px 25px rgba(0,0,0,0.15));
         }
 
         .final-message {
-            font-size: 1.25rem;
-            line-height: 1.8;
+            font-size: clamp(0.88rem, 2.9vw, 1.15rem);
+            line-height: 1.6;
             font-weight: 400;
             color: #2f3542;
-            margin-top: 15px;
+            margin-top: 8px;
         }
 
         .date-badge {
             display: inline-block;
-            margin-top: 35px;
-            padding: 10px 25px;
+            margin-top: 20px;
+            padding: 8px 20px;
             background: linear-gradient(135deg, #ff9a9e, #fecfef);
             color: #ff4757;
             border-radius: 30px;
             font-family: 'Poppins', sans-serif;
             font-weight: 700;
-            font-size: 1rem;
+            font-size: clamp(0.75rem, 2.5vw, 0.95rem);
             box-shadow: 0 8px 20px rgba(255, 154, 158, 0.3);
-            letter-spacing: 2px;
+            letter-spacing: 1.5px;
             text-transform: uppercase;
+        }
+
+        /* Dedicated Mobile & Compact Viewport Adjustments */
+        @media (max-width: 768px) {
+            .screen,
+            .overlay {
+                padding: 12px 10px 96px;
+            }
+
+            .glass-card,
+            .final-glass {
+                padding: 20px 16px;
+                border-radius: 22px;
+                width: 94%;
+            }
+
+            .story-prologue {
+                padding: 12px 14px;
+                margin-bottom: 14px;
+                border-radius: 14px;
+                line-height: 1.5;
+            }
+
+            .story-prologue p {
+                margin-bottom: 8px;
+            }
+
+            .prologue-music-btn {
+                width: 100%;
+                padding: 8px 10px;
+            }
+
+            .btn-start {
+                padding: 12px 28px;
+                width: 100%;
+                max-width: 260px;
+            }
+
+            .instruction {
+                top: 3.5%;
+            }
+
+            .story-progress {
+                top: 15.5%;
+                padding: 5px 14px;
+            }
+
+            .balloon {
+                width: 70px;
+                height: 90px;
+                font-size: 2rem;
+            }
+
+            .balloon::before {
+                width: 14px;
+                height: 30px;
+                top: 10px;
+                left: 14px;
+            }
+
+            .string {
+                height: 50px;
+            }
+
+            .polaroid {
+                padding: 14px 12px;
+                width: 94%;
+            }
+
+            .polaroid-img {
+                max-height: 30vh;
+                max-height: 30dvh;
+                margin-bottom: 10px;
+            }
+
+            .polaroid-caption {
+                margin-bottom: 12px;
+            }
+
+            .btn-continue {
+                padding: 11px 24px;
+                width: 100%;
+                max-width: 240px;
+            }
+
+            .music-widget {
+                bottom: 8px;
+                right: auto;
+                left: 50%;
+                transform: translateX(-50%);
+                width: calc(100vw - 20px);
+                max-width: 380px;
+                padding: 8px 12px;
+                border-radius: 16px;
+            }
+
+            .music-progress-row {
+                margin-top: 6px;
+            }
         }
     </style>
 </head>
@@ -595,7 +725,7 @@
         <div class="glass-card final-glass">
             <div class="final-cake">🎂</div>
             <h1 class="cursive-title">Happy Birthday!</h1>
-            <h2 class="subtitle" style="font-size: 1.8rem; font-weight: 600; margin-bottom: 15px; color: #ff6b81; max-width: 100%;">Janevera Appiah</h2>
+            <h2 class="subtitle final-name">Janevera Appiah</h2>
             <div class="final-message">
                 From the childhood myth of being born in Israel (okay, okay, Ghana! 🇬🇭) on <strong>1st November 2002</strong> with <strong>Gospel All Stars (<em>Obaatanpa / W’aseda Nie</em>)</strong> ringing in the air, to walking boldly as a brilliant lawyer—every chapter of your life is a testament to how wonderful you are.
                 <br><br>
