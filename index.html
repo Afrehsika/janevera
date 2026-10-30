@@ -93,11 +93,198 @@
         }
 
         h2.subtitle {
-            font-size: 1.3rem;
+            font-size: 1.2rem;
             font-weight: 400;
             color: #4a4e69;
-            margin-bottom: 40px;
-            line-height: 1.6;
+            margin-bottom: 30px;
+            line-height: 1.75;
+            max-width: 640px;
+        }
+
+        .story-prologue {
+            background: rgba(255, 255, 255, 0.45);
+            border: 1px solid rgba(255, 255, 255, 0.65);
+            border-radius: 20px;
+            padding: 22px 28px;
+            margin-bottom: 30px;
+            max-width: 640px;
+            text-align: left;
+            color: #2d3436;
+            font-size: 1.05rem;
+            line-height: 1.75;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+        }
+
+        .story-prologue p {
+            margin-bottom: 12px;
+        }
+
+        .story-prologue p:last-child {
+            margin-bottom: 0;
+        }
+
+        .chapter-badge {
+            display: inline-block;
+            padding: 5px 16px;
+            background: linear-gradient(135deg, #ff9a9e, #fecfef);
+            color: #d63031;
+            border-radius: 20px;
+            font-size: 0.82rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 12px;
+        }
+
+        .story-progress {
+            position: absolute;
+            top: 19%;
+            font-size: 1.05rem;
+            font-weight: 600;
+            color: #2d3436;
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(8px);
+            padding: 8px 22px;
+            border-radius: 30px;
+            z-index: 15;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+        }
+
+        /* Floating Music Player for Gospel All Stars - Obaatanpa / W'aseda Nie */
+        .music-widget {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 100;
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.8);
+            border-radius: 22px;
+            box-shadow: 0 12px 35px rgba(31, 38, 135, 0.18);
+            padding: 12px 16px;
+            width: 340px;
+            max-width: calc(100vw - 32px);
+            transition: all 0.3s ease;
+        }
+
+        .music-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 10px;
+        }
+
+        .music-info {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-align: left;
+            overflow: hidden;
+        }
+
+        .music-disc {
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #ff758c, #ff7eb3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-size: 1.1rem;
+            flex-shrink: 0;
+            box-shadow: 0 4px 10px rgba(255, 117, 140, 0.35);
+        }
+
+        .music-disc.spinning {
+            animation: spinDisc 4s linear infinite;
+        }
+
+        @keyframes spinDisc {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .music-title {
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: #2d3436;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .music-artist {
+            font-size: 0.75rem;
+            color: #636e72;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .music-controls {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            flex-shrink: 0;
+        }
+
+        .btn-music-Action {
+            background: linear-gradient(135deg, #ff758c, #ff7eb3);
+            color: #fff;
+            border: none;
+            border-radius: 20px;
+            padding: 6px 13px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 0.78rem;
+            font-weight: 600;
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(255, 117, 140, 0.3);
+            transition: transform 0.2s;
+        }
+
+        .btn-music-Action:hover {
+            transform: scale(1.05);
+        }
+
+        .music-progress-row {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 10px;
+            font-size: 0.72rem;
+            color: #636e72;
+            font-weight: 600;
+        }
+
+        .music-seek {
+            flex: 1;
+            accent-color: #ff758c;
+            height: 4px;
+            cursor: pointer;
+        }
+
+        .prologue-music-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 6px;
+            padding: 8px 16px;
+            background: linear-gradient(135deg, #2d3436, #4a4e69);
+            color: #fff;
+            border: none;
+            border-radius: 25px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 0.88rem;
+            font-weight: 600;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            transition: transform 0.2s;
+        }
+
+        .prologue-music-btn:hover {
+            transform: translateY(-2px);
         }
 
         /* Screen Transitions */
@@ -380,15 +567,26 @@
     <!-- 1. Start Screen -->
     <div id="start-screen" class="screen">
         <div class="glass-card">
-            <h1 class="cursive-title">Hey Janevera!</h1>
-            <h2 class="subtitle">Ready for a magical trip down memory lane?</h2>
-            <button class="btn-start" onclick="startGame()">Start 🎈</button>
+            <div class="chapter-badge">📖 A Birthday Storybook</div>
+            <h1 class="cursive-title">The Story of Janevera</h1>
+            <div class="story-prologue">
+                <p>✨ <strong>1st November 2002:</strong> According to childhood myth, on this special day in the land of <em>Israel</em>... okay, okay, in <strong>Ghana!</strong> 🇬🇭 — a young, beautiful girl was born.</p>
+                <p>🎶 The popular Ghanaian gospel music ringing across the airwaves was <strong>Gospel All Stars — <em>"Obaatanpa / W’aseda Nie"</em></strong>, praising and celebrating as heaven introduced its brightest star!</p>
+                <p>
+                    <button type="button" class="prologue-music-btn" onclick="openAndPlayMusic()">
+                        🎧 Listen: Gospel All Stars (Obaatanpa / W’aseda Nie)
+                    </button>
+                </p>
+                <p>🎈 Pop each balloon to turn the pages of her journey!</p>
+            </div>
+            <button class="btn-start" onclick="startGame()">Open Chapter 1 🎈</button>
         </div>
     </div>
 
     <!-- 2. Interactive Game Screen -->
     <div id="game-screen" class="screen hidden">
-        <h1 class="instruction">Pop the balloons!</h1>
+        <h1 class="instruction">Pop a balloon for the next chapter!</h1>
+        <div class="story-progress" id="story-progress">Chapter 1 of 16</div>
         <div id="balloons-container"></div>
     </div>
 
@@ -397,12 +595,13 @@
         <div class="glass-card final-glass">
             <div class="final-cake">🎂</div>
             <h1 class="cursive-title">Happy Birthday!</h1>
-            <h2 class="subtitle" style="font-size: 1.8rem; font-weight: 600; margin-bottom: 15px; color: #ff6b81;">Janevera Appiah</h2>
+            <h2 class="subtitle" style="font-size: 1.8rem; font-weight: 600; margin-bottom: 15px; color: #ff6b81; max-width: 100%;">Janevera Appiah</h2>
             <div class="final-message">
-                Every memory we've caught today is a testament to how wonderful you are. 
-                Wishing you a day as brilliant, playful, and unforgettable as you! 💖
+                From the childhood myth of being born in Israel (okay, okay, Ghana! 🇬🇭) on <strong>1st November 2002</strong> with <strong>Gospel All Stars (<em>Obaatanpa / W’aseda Nie</em>)</strong> ringing in the air, to walking boldly as a brilliant lawyer—every chapter of your life is a testament to how wonderful you are.
+                <br><br>
+                Wishing you a birthday as brilliant, playful, and unforgettable as your story! 💖
                 <br>
-                <div class="date-badge">November 1st</div>
+                <div class="date-badge">1st November 2002 • Forever Shining</div>
             </div>
         </div>
     </div>
@@ -410,13 +609,103 @@
     <!-- 3D Polaroid Modal Reveal -->
     <div class="overlay" id="memory-overlay">
         <div class="polaroid">
+            <div class="chapter-badge" id="memory-chapter">Chapter 1</div>
             <img class="polaroid-img" id="memory-img" src="" alt="Memory">
             <div class="polaroid-caption" id="memory-text">Memory text...</div>
-            <button class="btn-continue" onclick="continueGame()">Catch More</button>
+            <button class="btn-continue" id="btn-continue" onclick="continueGame()">Next Chapter ✨</button>
+        </div>
+    </div>
+
+    <!-- Persistent Floating Music Player for Gospel All Stars (Obaatanpa / W'aseda Nie) -->
+    <div class="music-widget" id="music-widget">
+        <audio id="local-audio" src="./Gospel-All-Stars-Waseda-Nie-www.ghanagospelsongs.com_.mp3" loop preload="auto"></audio>
+        <div class="music-header">
+            <div class="music-info">
+                <div class="music-disc" id="music-disc">🎵</div>
+                <div>
+                    <div class="music-title">Obaatanpa / W’aseda Nie</div>
+                    <div class="music-artist">Ghana Gospel All Stars</div>
+                </div>
+            </div>
+            <div class="music-controls">
+                <button class="btn-music-Action" id="btn-play-music" onclick="togglePlayMusic()">▶ Listen</button>
+            </div>
+        </div>
+        <div class="music-progress-row">
+            <span id="music-current">0:00</span>
+            <input type="range" id="music-seek" class="music-seek" min="0" max="100" value="0" step="0.1">
+            <span id="music-duration">0:00</span>
         </div>
     </div>
 
     <script>
+        // Direct HTML5 Audio Player for Gospel All Stars - Obaatanpa / W'aseda Nie
+        let isPlayingMusic = false;
+        const localAudio = document.getElementById('local-audio');
+        const seekSlider = document.getElementById('music-seek');
+        const currentTimeEl = document.getElementById('music-current');
+        const durationEl = document.getElementById('music-duration');
+
+        function formatTime(sec) {
+            if (!isFinite(sec) || sec < 0) return '0:00';
+            const m = Math.floor(sec / 60);
+            const s = Math.floor(sec % 60);
+            return `${m}:${s < 10 ? '0' : ''}${s}`;
+        }
+
+        localAudio.addEventListener('loadedmetadata', () => {
+            durationEl.innerText = formatTime(localAudio.duration);
+        });
+
+        localAudio.addEventListener('timeupdate', () => {
+            if (localAudio.duration) {
+                seekSlider.value = (localAudio.currentTime / localAudio.duration) * 100;
+                currentTimeEl.innerText = formatTime(localAudio.currentTime);
+                durationEl.innerText = formatTime(localAudio.duration);
+            }
+        });
+
+        localAudio.addEventListener('play', () => setMusicUIState(true));
+        localAudio.addEventListener('pause', () => setMusicUIState(false));
+
+        seekSlider.addEventListener('input', () => {
+            if (localAudio.duration) {
+                localAudio.currentTime = (seekSlider.value / 100) * localAudio.duration;
+            }
+        });
+
+        function setMusicUIState(playing) {
+            isPlayingMusic = playing;
+            const disc = document.getElementById('music-disc');
+            const btn = document.getElementById('btn-play-music');
+            const prologueBtn = document.querySelector('.prologue-music-btn');
+            if (playing) {
+                disc.classList.add('spinning');
+                btn.innerText = '⏸ Pause';
+                if (prologueBtn) {
+                    prologueBtn.innerText = '⏸ Playing: Gospel All Stars (Obaatanpa / W’aseda Nie)';
+                }
+            } else {
+                disc.classList.remove('spinning');
+                btn.innerText = '▶ Listen';
+                if (prologueBtn) {
+                    prologueBtn.innerText = '🎧 Listen: Gospel All Stars (Obaatanpa / W’aseda Nie)';
+                }
+            }
+        }
+
+        function openAndPlayMusic() {
+            togglePlayMusic();
+        }
+
+        function togglePlayMusic() {
+            if (localAudio.paused) {
+                localAudio.play().catch(err => console.warn('Audio play blocked:', err));
+            } else {
+                localAudio.pause();
+            }
+        }
+
         // Generate glowing orbs (bokeh)
         const bokehContainer = document.getElementById('bokeh-container');
         for (let i = 0; i < 15; i++) {
@@ -436,100 +725,116 @@
 
         const memories = [
             { 
-                icon: '📸', 
-                text: "That time we laughed until we couldn't breathe!", 
-                img: "./IMG-20241101-WA0005.jpg",
-                color: "linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%)" // Pink gradient
-            },
-            { 
-                icon: '🌟', 
-                text: "The moments that shaped our beautiful bond.", 
-                img: "./IMG-20241101-WA0007.jpg",
-                color: "linear-gradient(135deg, #f6d365 0%, #fda085 100%)" // Yellow/Orange
-            },
-            { 
-                icon: '😂', 
-                text: "Your help is leading me to find myself again, and after leaving your presence it seems I am always injected with laughing gas!", 
-                img: "./IMG-20241101-WA0016.jpg",
-                color: "linear-gradient(135deg, #fdfbfb 0%, #ebedee 100%)" // White/Silver
-            },
-            { 
-                icon: '🎉', 
-                text: "Celebrating every little victory together.", 
-                img: "./IMG-20251102-WA0001.jpg",
-                color: "linear-gradient(135deg, #a1c4fd 0%, #c2e9fb 100%)" // Blue
-            },
-            { 
-                icon: '💖', 
-                text: "Always there for each other, through thick and thin.", 
-                img: "./IMG-20251102-WA0002.jpg",
-                color: "linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%)" // Peach
-            },
-            { 
-                icon: '🌺', 
-                text: "Your smile always brightens up the darkest days.", 
-                img: "./IMG-20251102-WA0004.jpg",
-                color: "linear-gradient(135deg, #d4fc79 0%, #96e6a1 100%)" // Green
-            },
-            { 
-                icon: '🎶', 
-                text: "So many inside jokes, so little time!", 
-                img: "./IMG-20251102-WA0005.jpg",
-                color: "linear-gradient(135deg, #e0c3fc 0%, #8ec5fc 100%)" // Purple/Blue
-            },
-            { 
-                icon: '🥂', 
-                text: "And the countless memories still waiting to be made!", 
+                chapter: "Chapter 1 • 1st November 2002",
+                icon: '👶', 
+                text: "On 1st November 2002, in the land of Israel (according to childhood myth 😉)... okay, okay, in Ghana! 🇬🇭 — this young, beautiful girl was born!", 
                 img: "./Screenshot_20231009-001529.png",
                 color: "linear-gradient(135deg, #fccb90 0%, #d57eeb 100%)" // Sunset
             },
             { 
-                icon: '✨', 
-                text: "Can't help but smile when looking at this.", 
-                img: "./IMG-20241103-WA0024.jpg",
-                color: "linear-gradient(135deg, #84fab0 0%, #8fd3f4 100%)" // Aqua
-            },
-            { 
-                icon: '🥰', 
-                text: "I cherish every single second spent with you.", 
+                chapter: "Chapter 2 • Obaatanpa / W’aseda Nie",
+                icon: '🎶', 
+                text: "All across Ghana, the popular gospel anthem by Gospel All Stars—'Obaatanpa / W’aseda Nie'—was playing in thanksgiving and celebration of this little blessing!", 
                 img: "./Screenshot_20231014-061103.png",
                 color: "linear-gradient(135deg, #ffc3a0 0%, #ffafbd 100%)" // Rose
             },
             { 
+                chapter: "Chapter 3 • Growing in Grace",
                 icon: '🌈', 
-                text: "You are simply the best!", 
+                text: "From those early days, she grew up with a radiant spirit, natural grace, and a heart of gold—simply the best!", 
                 img: "./Screenshot_20240331-192918.png",
-                color: "linear-gradient(135deg, #fccb90 0%, #d57eeb 100%)" 
+                color: "linear-gradient(135deg, #f6d365 0%, #fda085 100%)" // Warm Gold
             },
             { 
+                chapter: "Chapter 4 • Sunshine in Human Form",
+                icon: '🌺', 
+                text: "Everywhere she went, her smile always brightened up even the darkest days.", 
+                img: "./IMG-20251102-WA0001.jpg",
+                color: "linear-gradient(135deg, #a1c4fd 0%, #c2e9fb 100%)" // Blue
+            },
+            { 
+                chapter: "Chapter 5 • True Friendship",
+                icon: '💖', 
+                text: "Always there for each other through thick and thin—turning ordinary days into cherished memories.", 
+                img: "./IMG-20251102-WA0002.jpg",
+                color: "linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%)" // Peach
+            },
+            { 
+                chapter: "Chapter 6 • Unstoppable Focus",
                 icon: '💕', 
-                text: "Cheers to many more adventures!", 
+                text: "Behind that sweet smile was a fierce determination—a young woman ready for many more adventures!", 
                 img: "./Screenshot_20240526-134038~2.jpg",
                 color: "linear-gradient(135deg, #a18cd1 0%, #fbc2eb 100%)" // Lavender
             },
             { 
+                chapter: "Chapter 7 • Blooming in Style",
+                icon: '✨', 
+                text: "Can't help but smile when looking at this—Effortless elegance and so many inside jokes, so little time!", 
+                img: "./IMG-20251102-WA0004.jpg",
+                color: "linear-gradient(135deg, #d4fc79 0%, #96e6a1 100%)" // Green
+            },
+            { 
+                chapter: "Chapter 8 • The Laughing Gas Effect",
+                icon: '😂', 
+                text: "Your help is leading me to find myself again, and after leaving your presence it seems I am always injected with laughing gas!", 
+                img: "./IMG-20251102-WA0005.jpg",
+                color: "linear-gradient(135deg, #e0c3fc 0%, #8ec5fc 100%)" // Purple/Blue
+            },
+            { 
+                chapter: "Chapter 9 • LLB 2024 Victory",
+                icon: '🎉', 
+                text: "Celebrating every victory together! Sleepless nights paid off—rocking the LLB 2024 sash with Isaiah 60:22!", 
+                img: "./IMG-20241101-WA0016.jpg",
+                color: "linear-gradient(135deg, #fdfbfb 0%, #ebedee 100%)" // White/Silver
+            },
+            { 
+                chapter: "Chapter 10 • Laughter & Roses",
+                icon: '📸', 
+                text: "That time we laughed until we couldn't breathe—basking in the joy of how far you've come!", 
+                img: "./IMG-20241103-WA0024.jpg",
+                color: "linear-gradient(135deg, #84fab0 0%, #8fd3f4 100%)" // Aqua
+            },
+            { 
+                chapter: "Chapter 11 • Poised for Greatness",
+                icon: '🥂', 
+                text: "Standing tall with flowers in hand, and the countless memories still waiting to be made!", 
+                img: "./IMG-20241101-WA0005.jpg",
+                color: "linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%)" // Pink gradient
+            },
+            { 
+                chapter: "Chapter 12 • A Beautiful Bond",
+                icon: '🥰', 
+                text: "The moments that shaped our beautiful bond—I cherish every single second spent with you.", 
+                img: "./IMG-20241101-WA0007.jpg",
+                color: "linear-gradient(135deg, #f6d365 0%, #fda085 100%)" // Yellow/Orange
+            },
+            { 
+                chapter: "Chapter 13 • Vision of a Counselor",
                 icon: '👑', 
-                text: "Grace, poise, and a vision as bright as your future!", 
+                text: "Fast-forward to a brand new era: grace, poise, and a vision as bright as your future!", 
                 img: "./WhatsApp Image 2026-10-30 at 21.31.22.jpeg",
                 color: "linear-gradient(135deg, #ff758c 0%, #ff7eb3 100%)" // Rose Pink
             },
             { 
-                icon: '⚖️', 
-                text: "Shining with pure joy and excellence—so proud of everything you've accomplished!", 
-                img: "./WhatsApp Image 2026-10-30 at 21.31.23.jpeg",
-                color: "linear-gradient(135deg, #f6d365 0%, #fda085 100%)" // Golden Amber
+                chapter: "Chapter 14 • Holding the Promise",
+                icon: '🌟', 
+                text: "From that baby girl born on 1st November 2002 to holding the barrister's wig in your hands—destined for the top, Counselor!", 
+                img: "./WhatsApp Image 2026-10-30 at 21.31.25.jpeg",
+                color: "linear-gradient(135deg, #c471f5 0%, #fa71cd 100%)" // Royal Orchid
             },
             { 
+                chapter: "Chapter 15 • All Rise!",
                 icon: '🎓', 
-                text: "Stepping into greatness with confidence, strength, and style!", 
+                text: "Stepping into greatness with confidence, strength, and style—nothing can stop your shine!", 
                 img: "./WhatsApp Image 2026-10-30 at 21.31.24.jpeg",
                 color: "linear-gradient(135deg, #89f7fe 0%, #66a6ff 100%)" // Sky Blue
             },
             { 
-                icon: '🌟', 
-                text: "Destined for the top, Counselor! Nothing can stop your shine.", 
-                img: "./WhatsApp Image 2026-10-30 at 21.31.25.jpeg",
-                color: "linear-gradient(135deg, #c471f5 0%, #fa71cd 100%)" // Royal Orchid
+                chapter: "Chapter 16 • The Masterpiece Continues",
+                icon: '⚖️', 
+                text: "From the childhood myth of Israel (okay, Ghana!) and Gospel All Stars' 'Obaatanpa / W’aseda Nie' to being Called to the Bar—so proud of everything you've accomplished!", 
+                img: "./WhatsApp Image 2026-10-30 at 21.31.23.jpeg",
+                color: "linear-gradient(135deg, #f6d365 0%, #fda085 100%)" // Golden Amber
             }
         ];
 
@@ -540,6 +845,10 @@
             document.getElementById('start-screen').classList.add('hidden');
             document.getElementById('game-screen').classList.remove('hidden');
             
+            if (!isPlayingMusic) {
+                togglePlayMusic();
+            }
+
             confetti({ particleCount: 150, spread: 100, origin: { y: 0.8 }, zIndex: 100 });
             
             spawnBalloons();
@@ -586,7 +895,7 @@
                 wrapper.style.animationDuration = `${duration}s`;
                 wrapper.style.animationDelay = `${Math.random() * 8}s`;
                 
-                wrapper.onclick = () => catchBalloon(wrapper, index);
+                wrapper.onclick = () => catchBalloon(wrapper);
                 
                 wrapper.addEventListener('animationiteration', () => {
                     wrapper.style.left = `${10 + Math.random() * 80}%`;
@@ -597,9 +906,12 @@
             });
         }
 
-        function catchBalloon(wrapper, index) {
+        function catchBalloon(wrapper) {
             wrapper.style.pointerEvents = 'none'; 
             
+            const storyIndex = caughtCount;
+            caughtCount++;
+
             const balloonEl = wrapper.querySelector('.balloon');
             const stringEl = wrapper.querySelector('.string');
             balloonEl.style.transform = 'scale(1.6)';
@@ -620,14 +932,28 @@
             setTimeout(() => {
                 wrapper.style.display = 'none'; 
                 
+                const mem = memories[storyIndex];
                 const overlay = document.getElementById('memory-overlay');
-                document.getElementById('memory-text').innerText = memories[index].text;
-                document.getElementById('memory-img').src = memories[index].img;
+                document.getElementById('memory-chapter').innerText = mem.chapter;
+                document.getElementById('memory-text').innerText = mem.text;
+                document.getElementById('memory-img').src = mem.img;
+                
+                const btnContinue = document.getElementById('btn-continue');
+                if (caughtCount === memories.length) {
+                    btnContinue.innerText = "Grand Finale 🎉";
+                } else {
+                    btnContinue.innerText = `Next Chapter (${caughtCount + 1}/${memories.length}) ✨`;
+                }
+
+                const progressEl = document.getElementById('story-progress');
+                if (caughtCount < memories.length) {
+                    progressEl.innerText = `Chapter ${caughtCount + 1} of ${memories.length}`;
+                } else {
+                    progressEl.innerText = `All ${memories.length} Chapters Unlocked! ✨`;
+                }
                 
                 overlay.classList.add('active');
             }, 350);
-
-            caughtCount++;
         }
 
         function continueGame() {
